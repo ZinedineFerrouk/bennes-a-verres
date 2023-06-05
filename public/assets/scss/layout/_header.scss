@@ -1,0 +1,159 @@
+/* ==|====================
+   Layout/Header
+   ======================= */
+
+#l-header {
+   z-index: 999;
+   padding: 30px 0;
+   background-color: $c-white;
+   background-image: url('../images/eco-patern.png');
+   background-repeat: no-repeat;
+   background-position: center right -15%;
+   box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.2);
+
+   nav {
+      @include flexbox(space-between, center, false);
+
+      ul {
+         @include flexbox(false, center, false);
+
+         li {
+            &:not(:first-child) {
+               margin-left: 20px;
+            }
+            a {
+               position: relative;
+               padding: 10px 15px;
+               opacity: 0.6;
+               transition: $t-transition;
+
+               &:not(.btn)::before {
+                  content: '';
+                  position: absolute;
+                  bottom: 0;
+                  left: 15px;
+                  width: 0;
+                  height: 3px;
+                  background-color: $c-primary;
+                  opacity: 0.4;
+                  transition: $t-transition;
+               }
+   
+               &:hover {
+                  opacity: 1;
+
+                  &::before {
+                     opacity: 1;
+                     width: calc(50% - 15px);
+                  }
+               }
+            }
+            &.has-submenu {
+               position: relative;
+
+               > a {
+                  height: 100%;
+                  display: block;
+
+                  i {
+                     font-size: 2.2em;
+                  }
+                  &::before {
+                     display: none !important;
+                  }
+               }
+               ul.submenu {
+                  padding: 20px 30px;
+                  position: absolute;
+                  top: 50px;
+                  left: 0;
+                  width: max-content;
+                  height: auto;
+                  background-color: $c-white;
+                  border-radius: 5px;
+                  border: 1px solid #ededed;
+                  @include flexbox(false, false, column);
+                  gap: 15px;
+                  box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.2);
+                  opacity: 0;
+                  visibility: hidden;
+                  transform: translateY(-15px);
+                  transition: $t-transition;
+
+                  li {
+                     margin: 0 !important;
+                     width: 100%;
+
+                     a {
+                        padding-left: 0;
+                        padding-right: 0;
+                        &::before {
+                           left: 0;
+                        }
+                     }
+                     span {
+                        font-weight: bold;
+                        font-style: italic;
+                     }
+                  }
+               }
+               &:focus-within ul.submenu {
+                  opacity: 1;
+                  visibility: visible;
+                  transform: translateY(0);
+               }
+            }
+         }
+      }
+      .responsive-list {
+         display: none;
+
+         .has-submenu {
+            position: relative;
+            > a {
+               padding-top: 0;
+               display: block;
+               text-align: center;
+               margin-bottom: 10px;
+               width: 100%;
+               height: max-content;
+               @include flexbox(center, center, false);
+            }
+
+            ul.submenu {
+               position: unset;
+               background-color: $c-light;
+               @include flexbox(center, center, column);
+               gap: 15px;
+               box-shadow: none !important;
+               border: none !important;
+
+               li {
+                  margin: 0 !important;
+                  width: auto;
+
+                  &.display-name {
+                     padding: 0 15px;
+                     cursor: default;
+                  }
+
+                  a {
+                     padding: 10px 15px;
+
+                     &::before {
+                        left: 15px;
+                     }
+                  }
+                  span {
+                     font-weight: bold;
+                     font-style: italic;
+                  }
+               }
+            }
+         }
+      }
+      .hamburger {
+         display: none;
+      }
+   }
+}

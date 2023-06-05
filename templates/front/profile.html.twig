@@ -1,0 +1,29 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+
+    {# Profile #}
+    <section id="profile">
+        <div id="l-constrained">
+            <div class="user-infos">
+                <h2 class="section-title">Vos informations</h2>
+                <ul>
+                    <li><label>Votre nom</label>{% if(app.user.firstName is not null and app.user.name is not null) %}{{ app.user.firstName }} {{ app.user.name }}{% else %}<span class="undefined">Aucune information</span>{% endif %}</li>
+                    <li><label>Votre adresse e-mail</label>{% if(app.user.email is not null) %}{{ app.user.email }}{% else %}<span class="undefined">Aucune information</span>{% endif %}</li>
+                    <li><label>Votre Numéro de téléphone</label>{% if(app.user.phone is not null) %}{{ app.user.phone }}{% else %}<span class="undefined">Aucune information</span>{% endif %}</li>
+                    <li><label>Votre société</label>{% if(app.user.organization is not null) %}{{ app.user.organization }}{% else %}<span class="undefined">Aucune information</span>{% endif %}</li>
+                    <li><label>Votre mot de passe</label><a href="#">Modifier votre mot de passe</a></li>
+                </ul>
+            </div>
+            <div class="tokenAPI">
+                <h2 class="section-title">Api Access Token</h2>
+                <div class="token">
+                    <code>3c28d89b80f70302b04fce2a1451f6ea</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

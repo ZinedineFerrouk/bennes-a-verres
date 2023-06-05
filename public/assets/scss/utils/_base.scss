@@ -1,0 +1,24 @@
+/* ==|====================
+   Utils/Base
+   ======================= */
+
+body {
+	background-color: $c-background-default;
+   font-family: $f-secondary;
+   font-size: $f-default-size;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+li {
+   list-style: none;
+}
+a {
+   text-decoration: none;
+   color: inherit;
+}
+button {
+   cursor: pointer;
+   outline: none;
+   box-shadow: none;
+   border: none;
+}

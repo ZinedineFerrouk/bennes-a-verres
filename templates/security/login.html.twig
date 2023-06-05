@@ -1,0 +1,84 @@
+{% extends 'form_template.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    {# MESSAGE FLASH #}
+    {% for label, messages in app.flashes(['success', 'error']) %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {% if app.user %}
+        <div class="notice notice-success notice-flash">
+            <ul>
+                Vous êtes connecté en tant que 
+                <span>{{ app.user.username }}</span>,
+                <a href="{{ path('app_logout') }}">Déconnexion</a>
+            </ul>
+        </div>
+        <div class="notice notice-error notice-flash">
+            <ul>
+                Vous êtes connecté en tant que 
+                <span>{{ app.user.username }}</span>,
+                <a href="{{ path('app_logout') }}">Déconnexion</a>
+            </ul>
+        </div>
+        <div class="notice notice-info notice-flash">
+            <ul>
+                Vous êtes connecté en tant que 
+                <span>{{ app.user.username }}</span>,
+                <a href="{{ path('app_logout') }}">Déconnexion</a>
+            </ul>
+        </div>
+    {% endif %}
+            
+	<section id="login">
+        <div class="back-to-home">
+			<a class="btn" href="{{ path('home') }}"><i class='bx bx-arrow-back' ></i> Retour à l'accueil</a>
+		</div>
+        <form class="login-form" method="post" novalidate="novalidate">
+            <h1 class="section-title">Connexion</h1>
+            {# Email #}
+            <div class="field">
+                <input type="email" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                <label for="inputEmail"><i class='bx bx-envelope'></i> Adresse e-mail</label>
+            </div>
+            {# Password #}
+            <div class="field">
+                <div class="forgot-password">
+                    <a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ?</a>
+                </div>
+                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                <label for="inputPassword"><i class='bx bx-lock-alt'></i> Mot de passe</label>
+            </div>
+            
+            {% if error %}
+                <div class="field">
+                    <div class="notice notice-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                </div>
+            {% endif %}
+
+            {# Don't forget #}
+            <div class="field field-checkbox">
+                <input id="checkbox-rememberme" type="checkbox" name="_remember_me">
+                <label for="checkbox-rememberme">Se souvenir de moi</label>
+            </div>
+            {# Submit #}
+            <div class="field-alreadylog">
+				<div class="field field-submit">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <button class="btn" type="submit"><i class='bx bx-log-in-circle' ></i> Se connecter</button>
+				</div>
+				<div class="field-alreadylog">
+					<p>Pas encore de compte ? <a href="{{ path('app_inscription') }}">Inscrivez-vous !</a></p>
+				</div>
+			</div>
+
+            
+        </form>
+    </section>
+{% endblock %}

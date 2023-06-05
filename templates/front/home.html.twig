@@ -1,0 +1,85 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+{# MESSAGE FLASH #}
+{% for label, messages in app.flashes(['success', 'error']) %}
+    {% for message in messages %}
+        <div class="flash-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+    {# Welcome #}
+    <section id="welcome">
+        <div id="l-constrained">
+            <h1 class="section-title">Le recyclage<br>plus proche de vous !</h1>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla quae accusantium animi placeat at aspernatur praesentium,
+                sunt corrupti cum cumque magni non sed nobis. Quia? Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, error?
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia voluptatem quis reprehenderit facere beatae.
+            </p>
+            <a href="#trouver-une-benne" class="btn btn-primary"><i class='bx bx-trash-alt'></i> Trouver une benne</a>
+        </div>
+    </section>
+
+    {# Map #}
+    <section id="trouver-une-benne">
+        <div id="l-constrained">
+            <h2 class="section-title">Trouver une benne près de chez vous !</h2>
+            <h3 class="locate"></h3>
+            <div class="mapbox">
+                <div id='map'></div>
+	            <div id="menu">
+	
+		        <label class="mapchange" for="checkfield"><div id='mapy'></div></label>
+                <input hidden type="checkbox" name="checkfield" id="checkfield"/>
+
+            </div>
+            </div>
+        </div>
+    </section>
+
+    {# Contact #}
+    <section id="contact">
+        <div id="l-constrained">
+            <h2 class="section-title">Contactez-nous !</h2>
+            {{ form_start(contactForm, {attr: {'novalidate': 'novalidate', 'class': 'contact-form'}} ) }}
+                <div class="field-group">
+                    <div class="field">
+                        <div class="notice notice-error">{{ form_errors(contactForm.lastName) }}</div>
+                        {{ form_widget(contactForm.lastName) }}
+                        <label for="contact_lastName"><i class='bx bx-user'></i> Nom</label>
+                    </div>
+                    <div class="field">
+                        <div class="notice notice-error">{{ form_errors(contactForm.firstName) }}</div>
+                        {{ form_widget(contactForm.firstName) }}
+                        <label for="contact_firstName"><i class='bx bx-user'></i> Prénom</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="notice notice-error">{{ form_errors(contactForm.email) }}</div>
+                    {{ form_widget(contactForm.email) }}
+                    <label for="contact_email"><i class='bx bx-envelope' ></i> Adresse e-mail</label>
+                </div>
+                <div class="field">
+                    <div class="notice notice-error">{{ form_errors(contactForm.subject) }}</div>
+                    {{ form_widget(contactForm.subject) }}
+                    <label for="contact_subject"><i class='bx bx-note' ></i> Sujet</label>
+                </div>
+                <div class="field">
+                    <div class="notice notice-error">{{ form_errors(contactForm.message) }}</div>
+                    {{ form_widget(contactForm.message) }}
+                    <label for="contact_message"><i class='bx bx-message-detail' ></i> Message</label>
+                </div>
+                <div class="field field-submit">
+                    <button class="btn btn-secondary" type="submit"><i class='bx bx-mail-send'></i> Envoyer le message</button>
+                </div>
+            {{ form_end(contactForm) }}
+        </div>
+    </section>
+
+{% endblock %}

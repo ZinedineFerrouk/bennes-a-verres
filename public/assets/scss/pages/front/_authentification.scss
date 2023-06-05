@@ -1,0 +1,58 @@
+/* ==|====================
+   Pages/Front/Authentification
+   ======================= */
+
+#registration,
+#login {
+  padding: 50px 30px;
+  position: relative;
+  min-height: 100vh;
+  background-image: url("../images/login-signup-background.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 1fr;
+  gap: 30px;
+  justify-items: center;
+  align-items: center;
+
+  &:before {
+    position: absolute;
+    content: '';
+    inset: 0;
+    background-color: rgba(32,44,58,0.4);
+    backdrop-filter: blur(10px);
+  }
+
+  .back-to-home {
+    position: relative;
+    height: 100%;
+
+    p {
+      font-size: 2em;
+      font-weight: bold;
+      color: $c-white;
+    }
+  }
+
+  .registration-form,
+  .login-form {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    z-index: 15;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background-color: $c-white;
+    border-radius: 5px;
+    box-shadow: 4px 4px 10px 0px rgba(32,44,58,0.2);
+
+    h1.section-title {
+      margin-bottom: 20px;
+    }
+    .field-submit {
+      text-align: right;
+   }
+  }
+}

@@ -1,0 +1,107 @@
+{% extends 'form_template.html.twig' %}
+{# TODO: Gestion des nom de class des erreurs à revoir #}
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+	{# Registration #}
+	<section id="registration">
+		<div class="back-to-home">
+			<a class="btn" href="{{ path('home') }}"><i class='bx bx-arrow-back' ></i> Retour à l'accueil</a>
+		</div>
+		{{ form_start(registrationForm, {attr: {'novalidate': 'novalidate', 'class': 'registration-form'}}) }}
+			<h1 class="section-title">Inscription</h1>
+			<div class="field-categories">
+				<div class="field-category">
+					<h2 class="subtitle">Vous</h2>
+					{# FirstName / LastName #}
+					<div class="field-group">
+						{# LastName #}
+						<div class="field">
+							<div class="notice notice-error">{{ form_errors(registrationForm.name) }}</div>
+							{{ form_widget(registrationForm.name) }}
+							<label for="registration_form_name"><i class='bx bx-user'></i> Nom</label>
+						</div>
+						{# FirstName #}
+						<div class="field">
+							<div class="notice notice-error">{{ form_errors(registrationForm.firstname) }}</div>
+							{{ form_widget(registrationForm.firstname) }}
+							<label for="registration_form_firstname"><i class='bx bx-user'></i> Prénom</label>
+						</div>
+					</div>
+					{# Email / Confirm Email #}
+					<div class="field-group">
+						{# Email #}
+						<div class="field">
+							<div class="notice notice-error">{{ form_errors(registrationForm.email.first) }}</div>
+							{{ form_widget(registrationForm.email.first) }}
+							<label for="registration_form_email_first"><i class='bx bx-envelope'></i> Email</label>
+						</div>
+						{# Confirm Email #}
+						<div class="field">
+							<div class="notice notice-error">{{ form_errors(registrationForm.email.first) }}</div>
+							{{ form_widget(registrationForm.email.second) }}
+							<label for="registration_form_email_second"><i class='bx bx-envelope'></i> Confirmez Email</label>
+						</div>
+					</div>
+					{# Password / Confirm Password #}
+					<div class="field-group">
+						{# Password #}
+						<div class="field">
+							<div class="notice notice-error">{{ form_errors(registrationForm.password.first) }}</div>
+							{{ form_widget(registrationForm.password.first) }}
+							<label for="registration_form_password_first"><i class='bx bx-lock-alt'></i> Mot de passe</label>
+						</div>
+						{# Confirm Password #}
+						<div class="field">
+							<div class="notice notice-error">{{ form_errors(registrationForm.password.first) }}</div>
+							{{ form_widget(registrationForm.password.second) }}
+							<label for="registration_form_password_second"><i class='bx bx-lock-alt'></i> Confirmez mot de passe</label>
+						</div>
+					</div>
+					{# Phone #}
+					<div class="field">
+						<div class="notice notice-error">{{ form_errors(registrationForm.phone) }}</div>
+						{{ form_widget(registrationForm.phone) }}
+						<label for="registration_form_phone"><i class='bx bx-phone'></i> Téléphone <span class="optional">(Optionel)</span></label>
+					</div>
+				</div>
+				<div class="field-category">
+					<h2 class="subtitle">Votre société</h2>
+					{# Organization #}
+					<div class="field">
+						<div class="notice notice-error">{{ form_errors(registrationForm.organization) }}</div>
+						{{ form_widget(registrationForm.organization) }}
+						<label for="registration_form_organization"><i class='bx bx-briefcase-alt'></i> Société <span class="optional">(Optionel)</span></label>
+					</div>
+					{# Kbis #}
+					<div class="field">
+						<div class="test"></div>
+						<div class="notice notice-error">{{ form_errors(registrationForm.kbis) }}</div>
+						<label id="js_drag-area" class="drag-area" for="registration_form_kbis">
+							<i class='bx bx-cloud-download'></i>
+							<p id="js_drag-text">Glisser & Déposer pour importer un fichier<span>OU</span>Cliquer pour parcourir</p>
+							{{ form_widget(registrationForm.kbis, {attr: {'id': 'js_input-file'}}) }}
+							<p class="file-types">Formats acceptés : jpg, jpeg, png, webp, pdf, x-pdf.</p>
+						</label>
+						<label for="registration_form_kbis"><i class='bx bx-envelope'></i> Extrait de Kbis <span class="optional">(Optionel)</span></label>
+					</div>
+				</div>
+			</div>
+			{# Submit #}
+			<div class="field-alreadylog">
+				<div class="field field-submit">
+					<button type="submit" class="btn"><i class='bx bx-user-plus'></i> S'inscrire</button>
+				</div>
+				<div class="field-alreadylog">
+					<p>Déjà inscrit ? <a href="{{ path('app_login') }}">Connectez-vous !</a></p>
+				</div>
+			</div>
+		{{ form_end(registrationForm) }}
+	</section>
+
+{% block javascript %}
+	<script src="{{ asset('assets/js/inputFileSystem.js') }}"></script>
+{% endblock %}
+
+{% endblock %}

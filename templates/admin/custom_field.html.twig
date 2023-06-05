@@ -1,0 +1,12 @@
+
+    {% if field.value is not empty %}
+        <div class="container_field_kbis">
+            <a class="button_download" href="uploads/{{ field.value }}" download target="_blank"><i class="fas fa-download"></i></a>
+            <a href="uploads/{{ field.value }} " target="_blank"><i class="fas fa-eye"></i></a>
+        </div>    
+    {% else %}
+        <div class="container_field_null">
+            <span class="badge badge-secondary">Aucun</span>  
+        </div>
+    {% endif %}    
+

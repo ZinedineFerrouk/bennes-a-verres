@@ -1,0 +1,41 @@
+/* ==|====================
+   Components/Scrollbar
+   ======================= */
+
+// Light Theme
+.scrollbar-light-theme::-webkit-scrollbar {
+    width: 10px;
+  height: 10px;
+  background: $c-background-default;
+}
+.scrollbar-light-theme::-webkit-scrollbar-track {
+    background: $c-background-default;
+}
+.scrollbar-light-theme::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background: #ababab;
+  cursor: pointer;
+}
+.scrollbar-light-theme::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,0,0.2); 
+}
+
+// Dark Theme
+.scrollbar-dark-theme::-webkit-scrollbar {
+    width: 10px;
+  height: 10px;
+  background: $c-background-default;
+}
+.scrollbar-dark-theme::-webkit-scrollbar-track {
+    background: $c-background-default;
+}
+.scrollbar-dark-theme::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background: #505050;
+  cursor: pointer;
+}
+.scrollbar-dark-theme::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,0,0.2); 
+}

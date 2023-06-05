@@ -1,0 +1,201 @@
+/* ==|====================
+   Utils/Responsive
+   ======================= */
+
+@media screen and (max-width: 1720px) {
+   #l-header nav ul li.has-submenu ul.submenu {
+      right: 0;
+      left: unset;
+   }
+}
+@media screen and (max-width: 1200px) {
+   #registration,
+   #login {
+      grid-template-columns: 1fr;
+      grid-template-rows: 50px 1fr;
+   }
+   #l-header {
+      background-position: center right -55%;
+   }
+   .field-categories {
+      grid-template-columns: 1fr !important;
+   }
+}
+@media screen and (max-width: 1024px) {
+   #l-header {
+      position: relative;
+      background-position: center right -75%;
+      nav {
+         ul {
+            display: none;
+         }
+         .responsive-list {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: $c-white;
+            width: 75%;
+            height: calc(100vh - 156px);
+            z-index: -1;
+            @include flexbox(center, center, column);
+            box-shadow: 5px 5px 10px -5px rgba(0, 0, 0, 0.2);
+            transform: translateX(100%);
+            border-top: 1px solid #dedede;
+            transition: $t-transition;
+
+            &[aria-expanded=true] {
+               transform: translateX(0);
+            }
+
+            li {
+               margin: 20px 0 !important;
+            }
+         }
+         .hamburger {
+            position: relative;
+            display: block;
+            cursor: pointer;
+            width: 40px;
+            height: 30px;
+            .bar {
+               position: absolute;
+               width: 100%;
+               height: 4px;
+               left: 0;
+               background-color: #000;
+               border-radius: 5px;
+               transition: $t-transition;
+
+               &.bar-top {
+                  top: 0;
+               }
+               &.bar-middle {
+                  top: 50%;
+                  transform: translateY(-50%);
+               }
+               &.bar-bottom {
+                  bottom: 0;
+               }
+            }
+            &.is-active {
+               .bar {
+                  &.bar-top {
+                     top: 50%;
+                     transform: translateY(-50%) rotate(45deg);
+                  }
+                  &.bar-middle {
+                     width: 0;
+                     opacity: 0.3;
+                  }
+                  &.bar-bottom {
+                     bottom: 50%;
+                     transform: translateY(50%) rotate(-45deg);
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+@media screen and (max-width: 768px) {
+   #l-header {
+      background-image: unset;
+   }
+   form {
+      &.contact-form {
+         width: 100%;
+      }
+      .field-group {
+         @include flexbox(false, center, column);
+         gap: 30px;
+   
+         .field {
+            width: 100%;
+         }
+      }
+      .field.field-submit {
+         button {
+            width: 100%;
+         }
+      }
+   }
+   #registration,
+   #login {
+
+      .registration-form {
+
+         .field-submit {
+           
+            button {
+              width: 100% !important;
+            }
+        }
+      }
+      .field-alreadylog {
+         flex-direction: column-reverse;
+         gap: 20px;
+      }
+   }
+   #brand-informations {
+
+      #l-constrained {
+         @include flexbox(space-between, center, column);
+
+         .brand___contact {
+            width: 100% !important;
+         }
+         .brand___logo {
+            width: 100% !important;
+         }
+         .brand___about {
+            width: 100% !important;
+         }
+      }
+   }
+   #l-footer {
+      #brand-informations {
+   
+         #l-constrained {
+            @include flexbox(center, center, false);
+      
+            .brand___contact {
+               @include flexbox(center, start, column);
+               width: max-content !important;
+            }
+            .brand___about {
+               text-align: center;
+               @include flexbox(center, center, column);
+            }
+         }
+      }
+   }
+   
+   #map {
+      background-image: none;
+   
+   }
+}
+@media screen and (max-width: 480px) {
+   #l-header {
+      nav {
+         .responsive-list {
+            width: 100%;
+         }
+      }
+   }
+   #welcome {
+      height: max-content;
+
+      &> #l-constrained {
+         @include flexbox(center, center, column);
+         text-align: center;
+   
+         h1.section-title {
+            font-size: 3em;
+         }
+         p {
+            font-size: 1em;
+         }
+      }
+   }
+}

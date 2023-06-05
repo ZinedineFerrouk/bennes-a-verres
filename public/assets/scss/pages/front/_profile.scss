@@ -1,0 +1,65 @@
+/* ==|====================
+   Pages/Front/Profile
+   ======================= */
+
+#profile {
+    padding: 50px 0;
+
+    > #l-constrained {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
+    .section-title {
+        margin-bottom: 25px;
+    }
+    .user-infos {
+        ul {
+            padding: 20px 35px;
+            background-color: $c-white;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-radius: 5px;
+
+            li {
+                label {
+                    display: block;
+                    margin-bottom: 5px;
+                    font-size: 1.2em;
+                    font-weight: bold;
+                    color: $c-secondary;
+                    transition: $t-transition;
+                }
+                .undefined {
+                    font-style: italic;
+                    font-weight: lighter;
+                }
+            }
+        }
+    }
+    .tokenAPI {
+        .token {
+            padding: 20px 35px;
+            background-color: $c-white;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-radius: 5px;
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+                font-size: 1.2em;
+                font-weight: bold;
+                color: $c-secondary;
+                transition: $t-transition;
+            }
+            code {
+                border-radius: 5px;
+                padding: 5px 25px;
+                background-color: $c-light;
+            }
+        }
+    }
+}

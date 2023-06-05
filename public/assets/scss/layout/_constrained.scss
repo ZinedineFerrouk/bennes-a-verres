@@ -1,0 +1,10 @@
+/* ==|====================
+   Layout/Constrained
+   ======================= */
+
+#l-constrained {
+    width: 100%;
+    max-width: $w-constrained;
+    padding: 0 2em;
+    margin: 0 auto;
+}

@@ -1,0 +1,56 @@
+<div id="js_overlay" class="overlay" aria-hidden="true"></div>
+<header id="l-header">
+    <div id="l-constrained">
+        <nav>
+            <div class="logo">
+                <a href="{{ path('home') }}"><img src="{{ asset('assets/images/logo.png') }}" alt="logo du site"></a>
+            </div>
+            <ul class="link-list">
+                <li><a href="{{ path('home') }}">Accueil</a></li>
+                <li><a href="{{ path('home', {'_fragment': 'trouver-une-benne'}) }}">Trouver une benne</a></li>
+                <li><a href="{{ path('home', {'_fragment': 'contact'}) }}">Contact</a></li>
+            </ul>
+            <ul class="btn-list">
+                {% if is_granted('ROLE_USER') %}
+                    <li class="has-submenu">
+                        <a title="Mon compte" href="javascript:void(0);"><i class='bx bx-user-circle' ></i></a>
+                        <ul class="submenu">
+                            <li class="display-name">Bonjour, <span>{{ app.user.firstName }} {{ app.user.name }}</span></li>
+                            <li><a href="{{ path('my-account') }}">Mon compte</a></li>
+                            <li><a class="logout-btn" href="{{ path('app_logout') }}">Déconnexion</a></li>
+                        </ul>
+                    </li>
+                {% else %}        
+                    <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                    <li><a href="{{ path('app_inscription') }}" class="btn btn-primary">Inscription</a></li>
+                {% endif %}
+            </ul>
+
+            {# Responsive Menu START #}
+            <ul id="js_reponsive-list" class="responsive-list" aria-expanded="false">
+                <li><a href="{{ path('home') }}">Accueil</a></li>
+                <li><a href="{{ path('home') }}#trouver-une-benne">Trouver une benne</a></li>
+                <li><a href="{{ path('home') }}#contact">Contact</a></li>
+                {% if is_granted('ROLE_USER') %}
+                <li class="has-submenu">
+                    <a href="javascript:void(0);">Mon compte <i class='bx bx-chevron-down' ></i></a>
+                    <ul class="submenu">
+                        <li class="display-name">Bonjour, <span>{{ app.user.firstName }} {{ app.user.name }}</span></li>
+                        <li><a href="{{ path('my-account') }}">Voir mon compte</a></li>
+                        <li><a class="logout-btn" href="{{ path('app_logout') }}">Déconnexion</a></li>
+                    </ul>
+                </li>
+                {% else %}
+                    <li><a href="#">Connexion</a></li>
+                    <li><a href="#" class="btn btn-primary">Inscription</a></li>
+                {% endif %}
+            </ul>
+            <div id="js_hamburger" class="hamburger">
+                <span class="bar bar-top"></span>
+                <span class="bar bar-middle"></span>
+                <span class="bar bar-bottom"></span>
+            </div>
+            {# Responsive Menu END #}
+        </nav>
+    </div>
+</header>

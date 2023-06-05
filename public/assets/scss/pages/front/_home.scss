@@ -1,0 +1,95 @@
+/* ==|====================
+   Pages/Front/Home
+   ======================= */
+
+#welcome {
+   padding: 50px 0;
+   background: url('../images/welcome-bg.webp') no-repeat;
+   background-size: cover;
+   height: calc(100vh - 156px);
+   color: $c-white;
+
+   &> #l-constrained {
+      width: 100%;
+      height: 100%;
+      @include flexbox(center, start, column);
+      gap: 30px;
+
+      h1.section-title {
+         line-height: 1.1;
+         font-size: 4em;
+         font-weight: bold;
+         margin-bottom: 0px;
+      }
+      p {
+         font-size: 1.2em;
+         opacity: 0.7;
+      }
+   }
+}
+
+#map {
+   height: 100%;
+   filter: blur(1.5rem);
+}
+#trouver-une-benne {
+   position: relative;
+   width: 100%;
+   height: 100vh;
+   padding: 50px 0;
+   background-color: $c-white;
+   background-image: url('../images/map-bg.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+
+   #l-constrained {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+   .section-title {
+      text-align: center;
+   }
+   .mapbox {
+      position: relative;
+      width: 80%;
+      height: 80%;
+      background-color: $c-white;
+      border-radius: 5px;
+      border: 1px solid $c-primary;
+      box-shadow: 0 0 0 8px rgba(47, 136, 66, 0.2),
+                  0 0 10px 0 rgba(32,44,58,0.2);
+      z-index: 15;
+   }
+   .mapchange{
+      display: block;
+      height: 50px;
+      width: 50px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-image: url("../images/maping.PNG");
+      filter: blur(1.5rem);
+  }
+  .locate{
+   line-height: 1.1;
+   font-size: 1em;
+   font-weight: bold;
+   margin-bottom: 20px;
+   text-align: center;
+  }
+}
+#contact {
+   padding: 50px 0;
+   background-color: $c-light;
+
+   .section-title {
+      color: $c-secondary;
+   }
+   #l-constrained {
+      @include flexbox(center, center, column);
+   }
+}

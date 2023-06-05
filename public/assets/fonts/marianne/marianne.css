@@ -1,0 +1,47 @@
+/* Light */
+@font-face {
+    font-family: 'custom-marianne';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('Marianne-Light.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'custom-marianne';
+    font-style: italic;
+    font-weight: 300;
+    font-display: swap;
+    src: url('Marianne-Light_Italic.woff2') format('woff2');
+}
+
+/* Regular */
+@font-face {
+    font-family: 'custom-marianne';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('Marianne-Regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'custom-marianne';
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url('Marianne-Regular_Italic.woff2') format('woff2');
+}
+
+/* Bold */
+@font-face {
+    font-family: 'custom-marianne';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('Marianne-Bold.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'custom-marianne';
+    font-style: italic;
+    font-weight: 800;
+    font-display: swap;
+    src: url('Marianne-Bold_Italic.woff2') format('woff2');
+}
